@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayomi Collection — Premium Fashion & Lifestyle</title>
+  <meta name="description" content="Shop premium fashion, shoes, perfumes, electronics and more. Order instantly on WhatsApp. Ayomi Collection — Nigeria's curated marketplace." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400;1,600&family=Jost:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ====== LOADER ====== -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-brand">
+      <span class="lb-gold">Ayomi</span>
+      <span class="lb-light">Collection</span>
+    </div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <p class="loader-tagline">Curating your collection…</p>
+  </div>
+</div>
+
+<!-- ====== ANNOUNCEMENT BAR ====== -->
+<div class="announcement-bar">
+  <div class="ann-scroll">
+    <span>✦ Ayomi Collection</span>
+    <span class="ann-sep">◆</span>
+    <span>WhatsApp: 08143105629</span>
+    <span class="ann-sep">◆</span>
+    <span>✦ New arrivals added daily</span>
+    <span class="ann-sep">◆</span>
+    <span>Call: 08080945551</span>
+    <span class="ann-sep">◆</span>
+    <span>✦ Ayomi Collection</span>
+    <span class="ann-sep">◆</span>
+    <span>WhatsApp: 08143105629</span>
+    <span class="ann-sep">◆</span>
+    <span>✦ New arrivals added daily</span>
+    <span class="ann-sep">◆</span>
+    <span>Call: 08080945551</span>
+    <span class="ann-sep">◆</span>
+  </div>
+</div>
+
+<!-- ====== NAVBAR ====== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a href="#" class="nav-logo" onclick="showView('home')">
+      <span class="nl-gold">Ayomi</span>
+      <span class="nl-thin">Collection</span>
+    </a>
+
+    <div class="nav-center">
+      <a href="#" class="nav-link" onclick="showView('home')">Home</a>
+      <div class="nav-dropdown-wrap">
+        <a href="#" class="nav-link">Shop <span class="nav-caret">▾</span></a>
+        <div class="nav-dropdown">
+          <a href="#" onclick="goCategory('Clothing')">👗 Clothing</a>
+          <a href="#" onclick="goCategory('Shoes')">👟 Shoes</a>
+          <a href="#" onclick="goCategory('Perfumes')">🌹 Perfumes</a>
+          <a href="#" onclick="goCategory('Electronics')">📱 Electronics</a>
+          <a href="#" onclick="goCategory('Bags')">👜 Bags</a>
+          <a href="#" onclick="goCategory('Kitchen Utensils')">🍳 Kitchen</a>
+          <a href="#" onclick="goCategory('Accessories')">💍 Accessories</a>
+          <a href="#" onclick="goCategory('Other')">🎁 Other</a>
+        </div>
+      </div>
+      <a href="#" class="nav-link" onclick="showView('shop')">All Products</a>
+      <a href="#" class="nav-link" onclick="scrollToContact()">Contact</a>
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-search-btn" onclick="toggleSearch()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <button class="nav-cart-btn" onclick="toggleCart()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-bar" id="searchBar">
+    <div class="search-inner">
+      <input type="text" id="searchInput" placeholder="Search for products, categories, brands…" oninput="handleSearchInput()" onkeydown="if(event.key==='Enter')doSearch()" autocomplete="off" />
+      <button onclick="doSearch()">Search</button>
+      <button class="search-close" onclick="toggleSearch()">✕</button>
+    </div>
+    <div class="search-suggestions" id="searchSuggestions"></div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" onclick="showView('home');toggleMobileMenu()">🏠 Home</a>
+    <a href="#" onclick="showView('shop');toggleMobileMenu()">🛍️ All Products</a>
+    <a href="#" onclick="goCategory('Clothing')">👗 Clothing</a>
+    <a href="#" onclick="goCategory('Shoes')">👟 Shoes</a>
+    <a href="#" onclick="goCategory('Perfumes')">🌹 Perfumes</a>
+    <a href="#" onclick="goCategory('Electronics')">📱 Electronics</a>
+    <a href="#" onclick="goCategory('Bags')">👜 Bags</a>
+    <a href="#" onclick="goCategory('Kitchen Utensils')">🍳 Kitchen</a>
+    <a href="#" onclick="goCategory('Accessories')">💍 Accessories</a>
+    <hr style="border-color:#333;margin:8px 0">
+    <a href="tel:08080945551">📞 08080945551</a>
+    <a href="https://wa.me/2348143105629" target="_blank">💬 WhatsApp Us</a>
+  </div>
+</nav>
+
+<!-- ====== CART DRAWER ====== -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Shopping Cart</h3>
+    <button onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty-state">
+      <div class="ces-icon">🛒</div>
+      <h4>Your cart is empty</h4>
+      <p>Add products to start your order</p>
+      <button class="btn-gold" onclick="showView('shop');toggleCart()">Browse Products</button>
+    </div>
+  </div>
+  <div class="cart-foot" id="cartFoot" style="display:none">
+    <div class="cart-summary">
+      <div class="cs-row"><span>Subtotal</span><span id="cartSubtotal">₦0</span></div>
+      <div class="cs-row"><span>Delivery</span><span style="color:var(--gold)">Negotiable</span></div>
+      <div class="cs-row total"><span>Total</span><span id="cartTotal">₦0</span></div>
+    </div>
+    <button class="btn-whatsapp-checkout" onclick="whatsappCheckout()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Order via WhatsApp
+    </button>
+    <button class="btn-clear-cart" onclick="clearCart()">Clear Cart</button>
+  </div>
+</div>
+
+<!-- ====== MAIN APP ====== -->
+<main id="app">
+
+  <!-- ========== HOME ========== -->
+  <div id="view-home" class="view active">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-noise"></div>
+        <div class="hero-gradient"></div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">✦ Nigeria's Curated Fashion Store</p>
+        <h1 class="hero-headline">
+          Style That<br>
+          <em>Speaks for You</em>
+        </h1>
+        <p class="hero-body">Handpicked fashion, beauty & lifestyle products sourced daily from trusted suppliers — at prices that make sense.</p>
+        <div class="hero-cta">
+          <button class="btn-gold" onclick="showView('shop')">Shop the Collection</button>
+          <a class="btn-outline-wa" href="https://wa.me/2348143105629?text=Hi! I'd like to browse Ayomi Collection" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><span class="trust-num" data-target="500">0</span><span>+</span><small>Products</small></div>
+          <div class="trust-div"></div>
+          <div class="trust-item"><span class="trust-num" data-target="1200">0</span><span>+</span><small>Happy Customers</small></div>
+          <div class="trust-div"></div>
+          <div class="trust-item"><span class="trust-num" data-target="8">0</span><span></span><small>Categories</small></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hv-main-card">
+          <div class="hv-card-img">✨</div>
+          <div class="hv-card-info">
+            <span>Featured Collection</span>
+            <strong>New Arrivals 2025</strong>
+          </div>
+        </div>
+        <div class="hv-float-card fc1">
+          <span>🔥</span>
+          <div><strong>Trending</strong><small>+24 this week</small></div>
+        </div>
+        <div class="hv-float-card fc2">
+          <span>📦</span>
+          <div><strong>Fast Delivery</strong><small>Lagos & beyond</small></div>
+        </div>
+        <div class="hv-float-card fc3">
+          <span>💬</span>
+          <div><strong>WhatsApp Order</strong><small>Instant & easy</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORY STRIP -->
+    <section class="cat-strip">
+      <div class="container">
+        <div class="cat-strip-grid" id="catStripGrid">
+          <div class="cscat" onclick="goCategory('Clothing')"><div class="cscat-icon">👗</div><span>Clothing</span></div>
+          <div class="cscat" onclick="goCategory('Shoes')"><div class="cscat-icon">👟</div><span>Shoes</span></div>
+          <div class="cscat" onclick="goCategory('Electronics')"><div class="cscat-icon">📱</div><span>Electronics</span></div>
+          <div class="cscat" onclick="goCategory('Perfumes')"><div class="cscat-icon">🌹</div><span>Perfumes</span></div>
+          <div class="cscat" onclick="goCategory('Bags')"><div class="cscat-icon">👜</div><span>Bags</span></div>
+          <div class="cscat" onclick="goCategory('Kitchen Utensils')"><div class="cscat-icon">🍳</div><span>Kitchen</span></div>
+          <div class="cscat" onclick="goCategory('Accessories')"><div class="cscat-icon">💍</div><span>Accessories</span></div>
+          <div class="cscat" onclick="goCategory('Other')"><div class="cscat-icon">🎁</div><span>More</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="section-products">
+      <div class="container">
+        <div class="section-title-row">
+          <div>
+            <h2 class="section-title">✨ New Arrivals</h2>
+            <p class="section-sub">Just added from our verified suppliers</p>
+          </div>
+          <button class="btn-see-all" onclick="showView('shop')">See All →</button>
+        </div>
+        <div class="product-grid" id="homeNewGrid"></div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES SHOWCASE -->
+    <section class="cat-showcase">
+      <div class="container">
+        <div class="section-title-row">
+          <div>
+            <h2 class="section-title">Shop by Category</h2>
+            <p class="section-sub">Explore our curated collections</p>
+          </div>
+        </div>
+        <div class="cat-showcase-grid">
+          <div class="csg-card large" onclick="goCategory('Clothing')" style="--bg:linear-gradient(135deg,#1a0a00,#3d1f00)">
+            <div class="csg-icon">👗</div>
+            <div class="csg-info"><h3>Clothing</h3><span>Fashion & Style</span></div>
+            <div class="csg-count" id="csg-count-Clothing">0 items</div>
+          </div>
+          <div class="csg-card" onclick="goCategory('Shoes')" style="--bg:linear-gradient(135deg,#001a1a,#003d3d)">
+            <div class="csg-icon">👟</div>
+            <div class="csg-info"><h3>Shoes</h3><span>Footwear</span></div>
+            <div class="csg-count" id="csg-count-Shoes">0 items</div>
+          </div>
+          <div class="csg-card" onclick="goCategory('Electronics')" style="--bg:linear-gradient(135deg,#0a001a,#1f003d)">
+            <div class="csg-icon">📱</div>
+            <div class="csg-info"><h3>Electronics</h3><span>Gadgets & Tech</span></div>
+            <div class="csg-count" id="csg-count-Electronics">0 items</div>
+          </div>
+          <div class="csg-card" onclick="goCategory('Perfumes')" style="--bg:linear-gradient(135deg,#1a0010,#3d002a)">
+            <div class="csg-icon">🌹</div>
+            <div class="csg-info"><h3>Perfumes</h3><span>Fragrance</span></div>
+            <div class="csg-count" id="csg-count-Perfumes">0 items</div>
+          </div>
+          <div class="csg-card" onclick="goCategory('Bags')" style="--bg:linear-gradient(135deg,#001a0a,#003d1f)">
+            <div class="csg-icon">👜</div>
+            <div class="csg-info"><h3>Bags</h3><span>Handbags & More</span></div>
+            <div class="csg-count" id="csg-count-Bags">0 items</div>
+          </div>
+          <div class="csg-card" onclick="goCategory('Accessories')" style="--bg:linear-gradient(135deg,#1a1a00,#3d3d00)">
+            <div class="csg-icon">💍</div>
+            <div class="csg-info"><h3>Accessories</h3><span>Jewellery & More</span></div>
+            <div class="csg-count" id="csg-count-Accessories">0 items</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRENDING -->
+    <section class="section-products alt-bg">
+      <div class="container">
+        <div class="section-title-row">
+          <div>
+            <h2 class="section-title">🔥 Trending Now</h2>
+            <p class="section-sub">Most popular items this week</p>
+          </div>
+          <button class="btn-see-all" onclick="showView('shop')">See All →</button>
+        </div>
+        <div class="product-grid" id="homeTrendingGrid"></div>
+      </div>
+    </section>
+
+    <!-- WHY AYOMI -->
+    <section class="why-section">
+      <div class="container">
+        <div class="section-title-row" style="justify-content:center;text-align:center">
+          <div>
+            <h2 class="section-title">Why Shop with Ayomi?</h2>
+            <p class="section-sub">We make shopping easy, fast and affordable</p>
+          </div>
+        </div>
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon">🤖</div>
+            <h3>AI-Curated Products</h3>
+            <p>Every product is automatically sourced from verified Nigerian suppliers using AI — always fresh, always relevant.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">💬</div>
+            <h3>Order on WhatsApp</h3>
+            <p>No complicated checkout. Just tap "Order on WhatsApp" and our team will handle everything instantly.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">✅</div>
+            <h3>Verified Suppliers</h3>
+            <p>All products are sourced from trusted WhatsApp supplier groups that Ayomi has vetted for quality.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon">🚀</div>
+            <h3>Fast Nationwide Delivery</h3>
+            <p>We deliver across Nigeria. Lagos same-day available. All other states within 2–5 business days.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="cta-content">
+            <h2>Can't find what you need?</h2>
+            <p>Send us a message on WhatsApp and we'll source it for you directly from our supplier network.</p>
+          </div>
+          <div class="cta-actions">
+            <a class="btn-gold" href="https://wa.me/2348143105629?text=Hi Ayomi! I'm looking for a product not on your website" target="_blank">
+              💬 Message Us on WhatsApp
+            </a>
+            <a class="cta-call" href="tel:08080945551">📞 08080945551</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / FOOTER INFO -->
+    <section class="contact-strip" id="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-item">
+            <span class="ci-icon">💬</span>
+            <div><strong>WhatsApp Orders</strong><a href="https://wa.me/2348143105629" target="_blank">08143105629</a></div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">📞</span>
+            <div><strong>Call Us</strong><a href="tel:08080945551">08080945551</a></div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">📧</span>
+            <div><strong>Email</strong><a href="/cdn-cgi/l/email-protection#83e2faeceeeae7e6f3e6e0f6efeae2f1bbb1c3e4eee2eaefade0ecee"><span class="__cf_email__" data-cfemail="87e6fee8eaeee3e2f7e2e4f2ebeee6f5bfb5c7e0eae6eeeba9e4e8ea">[email&#160;protected]</span></a></div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">📍</span>
+            <div><strong>Location</strong><span>Nigeria (Nationwide Delivery)</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- end view-home -->
+
+  <!-- ========== SHOP ========== -->
+  <div id="view-shop" class="view">
+    <div class="shop-layout">
+
+      <!-- SIDEBAR -->
+      <aside class="shop-aside" id="shopAside">
+        <div class="aside-section">
+          <h4 class="aside-title">Categories</h4>
+          <div class="aside-cats" id="asideCats"></div>
+        </div>
+        <div class="aside-section">
+          <h4 class="aside-title">Price Range</h4>
+          <div class="price-slider-wrap">
+            <div class="price-inputs">
+              <input type="number" id="priceFrom" placeholder="Min ₦" onchange="applyShopFilters()" />
+              <span>—</span>
+              <input type="number" id="priceTo" placeholder="Max ₦" onchange="applyShopFilters()" />
+            </div>
+          </div>
+        </div>
+        <div class="aside-section">
+          <h4 class="aside-title">Sort By</h4>
+          <div class="sort-options">
+            <label class="sort-opt"><input type="radio" name="sortBy" value="newest" checked onchange="applyShopFilters()" /> Newest First</label>
+            <label class="sort-opt"><input type="radio" name="sortBy" value="price-asc" onchange="applyShopFilters()" /> Price: Low → High</label>
+            <label class="sort-opt"><input type="radio" name="sortBy" value="price-desc" onchange="applyShopFilters()" /> Price: High → Low</label>
+            <label class="sort-opt"><input type="radio" name="sortBy" value="alpha" onchange="applyShopFilters()" /> Name: A–Z</label>
+          </div>
+        </div>
+        <button class="btn-clear-filters" onclick="clearShopFilters()">✕ Clear Filters</button>
+      </aside>
+
+      <!-- MAIN SHOP -->
+      <div class="shop-main">
+        <div class="shop-topbar">
+          <div class="shop-breadcrumb">
+            <span onclick="showView('home')" style="cursor:pointer">Home</span>
+            <span> / </span>
+            <span id="shopCrumb">All Products</span>
+          </div>
+          <div class="shop-controls">
+            <span id="shopCount" class="shop-count">Loading…</span>
+            <button class="filter-toggle-btn" onclick="toggleShopAside()">⚙ Filters</button>
+          </div>
+        </div>
+        <div class="active-filters" id="activeFilters"></div>
+        <div id="shopLoadingState" class="loading-state">
+          <div class="loading-spinner"></div>
+          <p>Loading products…</p>
+        </div>
+        <div class="product-grid" id="shopGrid"></div>
+        <div class="empty-shop" id="emptyShop" style="display:none">
+          <div>🔍</div>
+          <h3>No products found</h3>
+          <p>Try a different category or clear your filters.</p>
+          <button class="btn-gold" onclick="clearShopFilters()">Clear Filters</button>
+        </div>
+        <div class="pagination" id="shopPagination"></div>
+      </div>
+
+    </div>
+  </div><!-- end view-shop -->
+
+  <!-- ========== PRODUCT DETAIL ========== -->
+  <div id="view-product" class="view">
+    <div class="container">
+      <div class="pd-breadcrumb" id="pdBreadcrumb"></div>
+      <div class="product-detail-layout" id="productDetailContent"></div>
+      <div class="related-section">
+        <h3>You May Also Like</h3>
+        <div class="product-grid" id="relatedGrid"></div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ====== FOOTER ====== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <div class="footer-logo">
+          <span class="fl-gold">Ayomi</span>
+          <span class="fl-light">Collection</span>
+        </div>
+        <p>Nigeria's AI-curated fashion & lifestyle marketplace. Products sourced fresh daily from verified suppliers.</p>
+        <div class="footer-socials">
+          <a href="https://wa.me/2348143105629" target="_blank" title="WhatsApp">💬</a>
+          <a href="/cdn-cgi/l/email-protection#3f5e465052565b5a4f5a5c4a53565e4d070d7f58525e5653115c5052" title="Email">📧</a>
+          <a href="tel:08080945551" title="Call">📞</a>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4>Shop</h4>
+        <a href="#" onclick="goCategory('Clothing')">Clothing</a>
+        <a href="#" onclick="goCategory('Shoes')">Shoes</a>
+        <a href="#" onclick="goCategory('Electronics')">Electronics</a>
+        <a href="#" onclick="goCategory('Perfumes')">Perfumes</a>
+        <a href="#" onclick="goCategory('Bags')">Bags</a>
+        <a href="#" onclick="goCategory('Accessories')">Accessories</a>
+      </div>
+      <div class="footer-links-col">
+        <h4>Help</h4>
+        <a href="#">How to Order</a>
+        <a href="#">Delivery Info</a>
+        <a href="#">Return Policy</a>
+        <a href="#" onclick="scrollToContact()">Contact Us</a>
+      </div>
+      <div class="footer-contact-col">
+        <h4>Contact</h4>
+        <p><a href="https://wa.me/2348143105629" target="_blank">💬 08143105629 (WhatsApp)</a></p>
+        <p><a href="tel:08080945551">📞 08080945551</a></p>
+        <p><a href="/cdn-cgi/l/email-protection#3f5e465052565b5a4f5a5c4a53565e4d070d7f58525e5653115c5052">📧 <span class="__cf_email__" data-cfemail="e081998f8d898485908583958c898192d8d2a0878d81898cce838f8d">[email&#160;protected]</span></a></p>
+        <p>📍 Nigeria — Nationwide Delivery</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Ayomi Collection. All rights reserved.</span>
+      <span>All prices in Nigerian Naira (₦)</span>
+    </div>
+  </div>
+</footer>
+
+<!-- PRODUCT QUICK-VIEW MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+<div class="product-modal" id="productModal">
+  <button class="modal-close-btn" onclick="closeModal()">✕</button>
+  <div id="modalContent"></div>
+</div>
+
+<!-- TOAST -->
+<div id="toastBox"></div>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a class="wa-float" href="https://wa.me/2348143105629?text=Hi! I saw your Ayomi Collection website" target="_blank" title="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
