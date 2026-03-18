@@ -406,7 +406,6 @@ function openProductDetail(id) {
         <div class="pdl-cat">${product.category}</div>
         <h1 class="pdl-name">${escHtml(product.name)}</h1>
         <div class="pdl-price">₦${fmt(price)}</div>
-        <div class="pdl-original">📦 Supplier price: ₦${fmt(product.supplier_price)} + ₦${fmt(MARKUP_FLAT)} markup</div>
         <p class="pdl-desc">${escHtml(product.description || '')}</p>
         <div class="pdl-source">🏪 Source: ${escHtml(product.source || 'Verified Nigerian Supplier')}</div>
         <div class="pdl-actions">
